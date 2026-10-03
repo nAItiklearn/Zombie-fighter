@@ -17,6 +17,9 @@ class soldier(pygame.sprite.Sprite):  #used .sprite.Sprite to use features of sp
         self.img = pygame.transform.scale(img, (img.get_width()*scale , img.get_height()*scale))
         self.rect =self.img.get_rect()
         self.rect.center=(x,y)
+        
+    def draw(self):
+        screen.blit(self.img, self.rect)
        
 player =soldier(200, 200, 2) 
 # naitik =soldier(100, 100 , 3)
@@ -26,15 +29,20 @@ player =soldier(200, 200, 2)
 
 run =True
 while run:
+    
+    
+    player.draw()
     for event in pygame.event.get():
         #quiet game
         if event.type == pygame.QUIT:
             run =False
+    
+    pygame.display.update()
+    
+    
+    
             
-    screen.blit(player.img,player.rect)
-    # screen.blit(naitik.img, naitik.rect) 
-    pygame.display.update()#to display it 
-    # pygame.display.update()
+    
     
 
 pygame.quit()  
